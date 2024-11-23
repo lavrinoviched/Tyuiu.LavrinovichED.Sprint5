@@ -1,7 +1,8 @@
 using System.IO;
-using Tyuiu.LavrinovichED.Sprint5.Task0.V19.Lib; 
 
-namespace Tyuiu.LavrinovichED.Sprint5.Task0.V19.Test
+using Tyuiu.LavrinovichED.Sprint5.Task1.V7.Lib;
+
+namespace Tyuiu.LavrinovichED.Sprint5.Task1.V7.Test
 {
     [TestClass]
     public class DataServiceTest
@@ -9,7 +10,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task0.V19.Test
         [TestMethod]
         public void TestMethod1()
         {
-            string path = @"C:\Users\y_lav\AppData\Local\Temp\OutPutFileTask0.txt";
+            string path = @"C:\Users\y_lav\AppData\Local\Temp\OutPutFileTask1.txt";
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;

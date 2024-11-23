@@ -19,18 +19,18 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task1.V7.Lib
 
             double y;
             string strY;
-
             for (int x = startValue; x <= stopValue; x++)
+
             {
+
                 y = Math.Round(Math.Sin(x) / (x + 1.2) - Math.Sin(x) * 2 - (2 * x), 2);
                 strY = Convert.ToString(y);
 
-
                 if (x != stopValue)
                 {
-                    if(Math.Sin(x) * 2 - 2 * x != 0)
+                    if (Math.Sin(x) / (x + 1.2) != 0)
                     {
-                        y = Math.Round(Math.Sin(x) / (x + 1.2) - Math.Sin(x) * 2 - (2 * x), 2);
+                        y = Math.Round(Math.Sin(x) / (x + 1.2) - Math.Sin(x) * 2 - (2 * x), 2); ;
                         strY = Convert.ToString(y);
                     }
                     else
@@ -38,7 +38,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task1.V7.Lib
                         y = 0;
                         strY = Convert.ToString(y);
                     }
-                    File.AppendAllText(path, Environment.NewLine + strY);
+                    File.AppendAllText(path, strY + Environment.NewLine);
                 }
                 else
                 {

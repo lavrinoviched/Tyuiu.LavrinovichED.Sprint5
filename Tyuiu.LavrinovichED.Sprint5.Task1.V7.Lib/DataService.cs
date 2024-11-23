@@ -18,6 +18,8 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task1.V7.Lib
             }
 
             double y;
+            double a;
+            double b;
             string strY;
 
             for (int x = startValue; x <= stopValue; x++)
@@ -25,8 +27,19 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task1.V7.Lib
                 y = Math.Round(((Math.Sin(x) / x + 1.2) - Math.Sin(x) * 2 - 2 * x), 2);
                 strY = Convert.ToString(y);
 
+
                 if (x != stopValue)
                 {
+                    if(Math.Sin(x) * 2 - 2 * x != 0)
+                    {
+                        y = Math.Round(((Math.Sin(x) / (x + 1.2)) - ((Math.Sin(x) * 2) - (2 * x))), 2);
+                        strY = Convert.ToString(y);
+                    }
+                    else
+                    {
+                        y = 0;
+                        strY = Convert.ToString(y);
+                    }
                     File.AppendAllText(path, Environment.NewLine + strY);
                 }
                 else

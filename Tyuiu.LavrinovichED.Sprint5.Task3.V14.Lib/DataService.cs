@@ -1,5 +1,4 @@
-﻿using System.IO;
-using tyuiu.cources.programming.interfaces.Sprint5; 
+﻿using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.LavrinovichED.Sprint5.Task3.V14.Lib
 {
@@ -7,28 +6,15 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task3.V14.Lib
     {
         public string SaveToFileTextData(int x)
         {
-            double calculatedResult = (4 * Math.Pow(x, 3)) / (Math.Pow(x, 3) - 1);
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask3.bin");
 
-
-            int intResult = (int)Math.Round(calculatedResult, 3);
-
-
-            string tempPath = Path.GetTempPath();
-
-
-            string filePath = Path.Combine(tempPath, "OutPutFileTask3.bin");
-
-
-            using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Create)))
+            using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Append)))
             {
-                writer.Write(intResult);
+                writer.Write(Math.Round((4 * Math.Pow(x, 3) / Math.Pow(x, 3) - 1), 3));
+
             }
 
-
-            byte[] fileBytes = File.ReadAllBytes(filePath);
-            string base64String = Convert.ToBase64String(fileBytes);
-
-            return filePath;
+            return path;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task3.V14.Lib
 
             using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Append)))
             {
-                writer.Write(Math.Round((4 * Math.Pow(x, 3) / Math.Pow(x, 3) - 1), 3));
+                writer.Write(Math.Round(((4 * Math.Pow(x, 3)) / (Math.Pow(x, 3) - 1)), 3));
 
             }
 

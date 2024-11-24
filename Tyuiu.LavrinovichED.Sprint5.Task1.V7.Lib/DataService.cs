@@ -30,7 +30,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task1.V7.Lib
                 {
                     if (Math.Sin(x) / (x + 1.2) != 0)
                     {
-                        y = Math.Round(Math.Sin(x) / (x + 1.2) - Math.Sin(x) * 2 - (2 * x), 2); ;
+                        y = Math.Round(Math.Sin(x) / (x + 1.2) - Math.Sin(x) * 2 - (2 * x), 2); 
                         strY = Convert.ToString(y);
                     }
                     else

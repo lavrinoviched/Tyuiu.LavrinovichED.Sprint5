@@ -8,39 +8,18 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" });
+            string putj = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask3.txt";
+            FileInfo fileInfo = new FileInfo(putj);
+            bool fileExist = fileInfo.Exists;
 
-            FileInfo f = new FileInfo(pathSaveFile);
-            if (f.Exists)
+            if (fileExist)
             {
-                File.Delete(pathSaveFile);
+                File.Delete(putj);
             }
-
-            string strLine = "";
-            string[] newstrLine = new string[strLine.Length];
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        if (!(Convert.ToChar(line[i]) >= 'а' && Convert.ToChar(line[i]) <= 'я' ||
-                            Convert.ToChar(line[i]) >= 'А' && Convert.ToChar(line[i]) <= 'Я'))
-                        {
-                            strLine = strLine + line[i]; 
-                        }
-                        string strline = Regex.Replace(pathSaveFile, @"s+", " ");
-                    }
-                    
-                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
-                    strLine = "";
-                }
-                string result = string.Join("", newstrLine);
-                File.AppendAllText(pathSaveFile, result);
-            }
-            return pathSaveFile;
-
+            string str = File.ReadAllText(path);
+            string result = Regex.Replace(str, @"\b[ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ][а-я]+", "");
+            File.AppendAllText(putj, result + Environment.NewLine);
+            return putj;
         }
     }
 }

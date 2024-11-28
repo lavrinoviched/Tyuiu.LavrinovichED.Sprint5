@@ -9,14 +9,6 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
         {
             string pathSaveFile = @"C:\Users\y_lav\source\repos\Tyuiu.LavrinovichED.Sprint5\DataSprint5\InPutDataFileTask7V3.txt";
 
-            FileInfo fileInfo = new FileInfo(pathSaveFile);
-            bool fileExixsts = fileInfo.Exists;
-
-            if (fileExixsts)
-            {
-                File.Delete(pathSaveFile);
-            }
-
             string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
@@ -31,9 +23,17 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
                             strLine = strLine + line[i];
                         }
                     }
-                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
                     strLine = "";
                 }
+            }
+            FileInfo fileInfo = new FileInfo(Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" }));
+            if (fileInfo.Exists)
+            {
+                File.Delete(Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" }));
+            }
+            using (StreamWriter writer = new StreamWriter(Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" })))
+            {
+                writer.WriteLine(pathSaveFile);
             }
             return pathSaveFile;
 

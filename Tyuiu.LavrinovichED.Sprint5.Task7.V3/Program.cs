@@ -25,7 +25,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3
             Console.WriteLine("****************************************************************************************************");
 
             string path = @"C:\Users\y_lav\source\repos\Tyuiu.LavrinovichED.Sprint5\DataSprint5\InPutDataFileTask7V3.txt";
-            string pathSaveFile = @"C:\Users\y_lav\source\repos\Tyuiu.LavrinovichED.Sprint5\DataSprint5\OutPutDataFileTask7V3.txt";
+            string pathSaveFile = @"C:\Users\y_lav\AppData\Local\Temp\OutPutDataFileTask7V3.txt";
             Console.WriteLine("Данные находятся в файле: " + path);
 
             Console.WriteLine("******************************************************************************************************");

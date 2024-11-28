@@ -25,16 +25,16 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3
             Console.WriteLine("****************************************************************************************************");
 
             string path = @"C:\Users\y_lav\source\repos\Tyuiu.LavrinovichED.Sprint5\DataSprint5\InPutDataFileTask7V3.txt";
-            string pathSaveFile = @"C:\Users\y_lav\AppData\Local\Temp\OutPutDataFileTask7V3.txt";
+            string path2 = Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" });
+
             Console.WriteLine("Данные находятся в файле: " + path);
 
-            Console.WriteLine("******************************************************************************************************");
-            Console.WriteLine("* РЕЗУЛЬТАТ:                                                                                         *");
-            Console.WriteLine("******************************************************************************************************");
-            Console.WriteLine("Данные находятся в файле: " + pathSaveFile);
+            Console.WriteLine("****************************************************************************************************");
+            Console.WriteLine("* РЕЗУЛЬТАТ:                                                                                       *");
+            Console.WriteLine("****************************************************************************************************");
 
-            pathSaveFile = ds.LoadDataAndSave(path);
-            Console.WriteLine(pathSaveFile);
+            path2 = ds.LoadDataAndSave(path);
+            Console.WriteLine(path2);
             Console.ReadKey();
         }
     }

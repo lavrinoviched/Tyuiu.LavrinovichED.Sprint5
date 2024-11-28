@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text.RegularExpressions;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
@@ -7,7 +8,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3txt" });
+            string pathSaveFile = Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" });
 
             FileInfo f = new FileInfo(pathSaveFile);
             if (f.Exists)
@@ -16,6 +17,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
             }
 
             string strLine = "";
+            string[] newstrLine = new string[strLine.Length];
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
@@ -26,14 +28,18 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
                         if (!(Convert.ToChar(line[i]) >= 'а' && Convert.ToChar(line[i]) <= 'я' ||
                             Convert.ToChar(line[i]) >= 'А' && Convert.ToChar(line[i]) <= 'Я'))
                         {
-                            strLine = strLine + line[i];
+                            strLine = strLine + line[i]; 
                         }
+                        string strline = Regex.Replace(pathSaveFile, @"s+", " ");
                     }
+                    
                     File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
                     strLine = "";
                 }
+                string result = string.Join("", newstrLine);
+                File.AppendAllText(pathSaveFile, result);
             }
-            return pathSaveFile; 
+            return pathSaveFile;
 
         }
     }

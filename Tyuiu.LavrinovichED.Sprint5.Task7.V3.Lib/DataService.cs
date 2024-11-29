@@ -8,33 +8,18 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V3.txt" });
+            string pathSaveFile = "Hello,! Это is my first program.";
 
-            FileInfo f = new FileInfo(pathSaveFile);
-            if (f.Exists)
+            FileInfo fileInfo = new FileInfo(pathSaveFile);
+            if (fileInfo.Exists)
             {
                 File.Delete(pathSaveFile);
             }
 
             string strLine = "";
 
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        if (!(Convert.ToChar(line[i]) >= 'а' && Convert.ToChar(line[i]) <= 'я' ||
-                            Convert.ToChar(line[i]) >= 'А' && Convert.ToChar(line[i]) <= 'Я'))
-                        {
-                            strLine = strLine + line[i];
-                        }
-                    }
 
-                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
-                }
-            }
+            File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
             return pathSaveFile;
         }
     }

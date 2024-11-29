@@ -38,7 +38,7 @@ namespace Tyuiu.LavrinovichED.Sprint5.Task7.V3.Lib
                 }
 
             }
-            return "Hello,! is my first program.";
+            return pathSaveFile;
         }
     }
 }
